@@ -1,0 +1,17 @@
+--                                  
+services:
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: duckdns
+    network_mode: host 
+    environment:
+      - PUID=1000 
+      - PGID=1000 
+      - TZ=Etc/UTC 
+      - SUBDOMAINS=mwang
+      - TOKEN=317b945e-f8e7-4705-a6c5-a6d8f46c22ef
+      - UPDATE_IP=ipv4 
+      - LOG_FILE=false 
+    volumes:
+      - /home/mras/wireguard/config:/config 
+    restart: unless-stopped
